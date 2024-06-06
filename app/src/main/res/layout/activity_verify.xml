@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VerifyActivity">
+    <LinearLayout
+        android:gravity="center"
+        android:background="@color/my_yellow"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:textColor="@color/white"
+            android:text="Verifycation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edt_otp"
+            android:textColorHint="@color/my_light_blue"
+            android:textColor="@color/my_light_blue"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:hint="******"
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:inputType="number" />
+        <TextView
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:text="Kiểm tra mã xác thực trên điện thoai của bạn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_verify"
+            android:backgroundTint="@color/my_light_blue"
+            android:textAllCaps="false"
+            android:text="Xác thực"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_width="200dp"
+            android:layout_height="65dp"/>
+        <TextView
+            android:id="@+id/btn_resend_otp"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Gửi lại mã số?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

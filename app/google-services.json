@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "399751654446",
+    "project_id": "car-rescue-android-app",
+    "storage_bucket": "car-rescue-android-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399751654446:android:09da89bd6ceb6f477c03bf",
+        "android_client_info": {
+          "package_name": "com.example.appcuuhoxe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVPKucr_UvAtJjuZxR_35BLYQzJ1a9Yr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
