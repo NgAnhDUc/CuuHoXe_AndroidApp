@@ -5,22 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".userView.LoginActivity">
+    tools:context=".recuseTeamView.LoginRecuseTeamActivity">
     <LinearLayout
-        android:background="@color/my_yellow"
+        android:background="@color/my_red"
         android:layout_width="match_parent"
         android:layout_height="25dp">
         <TextView
             android:layout_marginLeft="5dp"
             android:textColor="@color/white"
             android:textAlignment="center"
-            android:text="Dành cho người cần cứu hộ"
+            android:text="Dành cho đội cứu hộ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
         android:gravity="center"
-        android:background="@color/my_yellow"
+        android:background="@color/my_red"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -35,7 +35,7 @@
                 android:textColor="@color/black"/>
         </LinearLayout>
         <LinearLayout
-            android:background="@color/my_light_yellow"
+            android:background="@color/my_red"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <Button
@@ -69,7 +69,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <EditText
-            android:id="@+id/edt_password"
             android:layout_marginBottom="50dp"
             android:inputType="textPassword"
             android:layout_width="match_parent"
@@ -83,7 +82,7 @@
         <Button
             android:id="@+id/btn_login"
             android:textAllCaps="false"
-            android:backgroundTint="@color/my_light_blue"
+            android:backgroundTint="@color/my_orange"
             android:textStyle="bold"
             android:textSize="23sp"
             android:text="Đăng nhập"
@@ -101,12 +100,12 @@
         </LinearLayout>
         <Button
             android:layout_marginTop="50dp"
-            android:id="@+id/btn_goRecuseTeam"
+            android:id="@+id/btn_goUser"
             android:textAllCaps="false"
-            android:backgroundTint="@color/my_red"
+            android:backgroundTint="@color/my_light_blue"
             android:textStyle="bold"
             android:textSize="22sp"
-            android:text="Bạn Là Đội Cứu Hộ"
+            android:text="Bạn Cần Cứu Hộ"
             android:layout_width="200dp"
             android:layout_height="80dp"/>
     </LinearLayout>

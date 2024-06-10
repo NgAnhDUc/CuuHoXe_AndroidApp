@@ -5,29 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".userView.RegisterActivity">
+    tools:context=".recuseTeamView.RegisterRecuseTeamActivity">
 
     <LinearLayout
-        android:background="@color/my_yellow"
+        android:background="@color/my_red"
         android:layout_width="match_parent"
         android:layout_height="25dp">
         <TextView
             android:layout_marginLeft="5dp"
             android:textColor="@color/white"
             android:textAlignment="center"
-            android:text="Dành cho người cần cứu hộ"
+            android:text="Dành cho đội cứu hộ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/my_yellow"
+        android:background="@color/my_red"
         android:gravity="center">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/my_light_yellow">
+            android:background="@color/my_red">
             <Button
                 android:id="@+id/btn_tab_login"
                 android:layout_width="200dp"
@@ -107,7 +107,7 @@
             android:id="@+id/btn_register"
             android:layout_width="200dp"
             android:layout_height="65dp"
-            android:backgroundTint="@color/my_light_blue"
+            android:backgroundTint="@color/my_orange"
             android:text="Đăng ký"
             android:textAllCaps="false"
             android:textSize="23sp"
@@ -127,12 +127,12 @@
         </LinearLayout>
         <Button
             android:layout_marginTop="20dp"
-            android:id="@+id/btn_goRecuseTeam"
+            android:id="@+id/btn_goUser"
             android:textAllCaps="false"
-            android:backgroundTint="@color/my_red"
+            android:backgroundTint="@color/my_light_blue"
             android:textStyle="bold"
             android:textSize="22sp"
-            android:text="Bạn Là Đội Cứu Hộ"
+            android:text="Bạn Cần Cứu Hộ"
             android:layout_width="200dp"
             android:layout_height="80dp"/>
     </LinearLayout>

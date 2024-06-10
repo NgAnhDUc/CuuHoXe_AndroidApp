@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/locate"
+        android:icon="@drawable/location_icon"
+        android:title="Vị trí">
+    </item>
+    <item
+        android:id="@+id/shopping"
+        android:icon="@drawable/shopping_bag_icon"
+        android:title="Cửa hàng">
+    </item>
+    <item
+        android:id="@+id/driver"
+        android:icon="@drawable/directions_car_icon"
+        android:title="Cứu hộ">
+    </item>
+    <item
+        android:id="@+id/history"
+        android:icon="@drawable/history_edu_icon"
+        android:title="Hoạt động">
+    </item>
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/person_icon"
+        android:title="Tài khoản">
+    </item>
+</menu>

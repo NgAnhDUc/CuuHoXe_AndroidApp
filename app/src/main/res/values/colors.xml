@@ -11,4 +11,6 @@
     <color name="my_light_blue">#7574E9</color>
     <color name="my_yellow">#FEBD01</color>
     <color name="my_light_yellow">#FECB56</color>
+    <color name="my_red">#C40C0C</color>
+    <color name="my_orange">#FF6500</color>
 </resources>
