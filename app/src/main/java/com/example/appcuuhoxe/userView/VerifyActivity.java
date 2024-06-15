@@ -1,4 +1,4 @@
-package com.example.appcuuhoxe;
+package com.example.appcuuhoxe.userView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.appcuuhoxe.R;
-import com.example.appcuuhoxe.userView.InfoUserActivity;
 import com.example.appcuuhoxe.utils.AndroidUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,8 +23,9 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class VerifyLoginActivity extends AppCompatActivity {
+public class VerifyActivity extends AppCompatActivity {
     String phoneNumber;
+    String password;
     String verifycationCode;
 
     PhoneAuthProvider.ForceResendingToken myforceResendingToken;
@@ -37,12 +37,13 @@ public class VerifyLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_verify_login);
+        setContentView(R.layout.activity_verify);
         edt_otp = findViewById(R.id.edt_otp);
         btn_resend_otp = findViewById(R.id.btn_resend_otp);
         btn_verify = findViewById(R.id.btn_verify);
 
         phoneNumber = getIntent().getExtras().getString("phone");
+        password = getIntent().getExtras().getString("pass");
 
         sendOTP(phoneNumber,false);
 
@@ -97,8 +98,9 @@ public class VerifyLoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(VerifyLoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(VerifyActivity.this, InfoUserActivity.class);
                     intent.putExtra("phone",phoneNumber);
+                    intent.putExtra("pass",password);
                     startActivity(intent);
                 }else {
                     AndroidUtils.showToast(getApplicationContext(),"Xác thực lỗi vui lòng thử lại!");

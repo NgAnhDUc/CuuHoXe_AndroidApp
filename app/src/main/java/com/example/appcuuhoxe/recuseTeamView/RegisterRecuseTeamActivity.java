@@ -1,5 +1,6 @@
 package com.example.appcuuhoxe.recuseTeamView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,7 +12,11 @@ import android.widget.TextView;
 
 import com.example.appcuuhoxe.R;
 import com.example.appcuuhoxe.userView.RegisterActivity;
-import com.example.appcuuhoxe.VerifyActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class RegisterRecuseTeamActivity extends AppCompatActivity {
     Button btn_tab_login;
@@ -50,10 +55,8 @@ public class RegisterRecuseTeamActivity extends AppCompatActivity {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RegisterRecuseTeamActivity.this, VerifyActivity.class);
-                String phoneNumber = edt_phone.getText().toString().substring(1) ;
-                intent.putExtra("phone","+84"+phoneNumber);
-                startActivity(intent);
+                if(!ValidationPassword())return;
+                checkRegister();
             }
         });
         btn_goUser.setOnClickListener(new View.OnClickListener() {
@@ -63,5 +66,44 @@ public class RegisterRecuseTeamActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    boolean ValidationPassword(){
+        String passwordStr = edt_password.getText().toString();
+        String repasswordStr = edt_repassword.getText().toString();
+        if (!passwordStr.equals(repasswordStr)){
+            edt_repassword.setError("Không đúng");
+            return false;
+        }
+        if(passwordStr.length()<8){
+            edt_password.setError("Mật khẩu có độ dài hơn 8 ký tự");
+            return false;
+        }
+        return true;
+    }
+    void checkRegister(){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        String phoneNumber ="+84"+ edt_phone.getText().toString().substring(1) ;
+        Query queryPhoneNumber =db.collection("DoiCuuHo").whereEqualTo("phone", phoneNumber);
+        queryPhoneNumber.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    int check = task.getResult().getDocuments().size();
+                    if(check == 0){
+                        RegisterFireBase();
+                    }else {
+                        edt_phone.setError("Tài khoản đã tồn tại");
+                        return;
+                    }
+                }
+            }
+        });
+    }
+    void RegisterFireBase(){
+        Intent intent = new Intent(RegisterRecuseTeamActivity.this, VerifyRecuseTeamActivity.class);
+        String phoneNumber = edt_phone.getText().toString().substring(1) ;
+        intent.putExtra("phone","+84"+phoneNumber);
+        intent.putExtra("pass",edt_password.getText().toString());
+        startActivity(intent);
     }
 }

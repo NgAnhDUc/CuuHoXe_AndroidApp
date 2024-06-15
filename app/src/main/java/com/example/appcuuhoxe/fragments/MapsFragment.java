@@ -6,19 +6,26 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.appcuuhoxe.MainActivity;
 import com.example.appcuuhoxe.R;
+import com.example.appcuuhoxe.models.LocatonModel;
+import com.example.appcuuhoxe.models.UserModel;
+import com.example.appcuuhoxe.userView.InfoUserActivity;
 import com.example.appcuuhoxe.utils.AndroidUtils;
+import com.example.appcuuhoxe.utils.FireBaseUtils;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -29,8 +36,11 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.io.IOException;
 import java.util.List;
@@ -42,20 +52,19 @@ public class MapsFragment extends Fragment implements GoogleMap.OnMarkerClickLis
     Location currentLocation;
     String address;
     TextView tv_address;
+    LocatonModel locatonModel;
     FusedLocationProviderClient fusedLocationProviderClient;
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
         @Override
         public void onMapReady(GoogleMap googleMap) {
             mMap = googleMap;
             mMap.getUiSettings().setMyLocationButtonEnabled(true);
-            mMap.getUiSettings().setZoomControlsEnabled(true);
             if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
             mMap.setMyLocationEnabled(true);
-            LatLng mylocation = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(mylocation).title(address).visible(false));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mylocation,15f));
+            LatLng allocation = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(allocation,15f));
         }
     };
     @Nullable
@@ -72,6 +81,8 @@ public class MapsFragment extends Fragment implements GoogleMap.OnMarkerClickLis
         tv_address = view.findViewById(R.id.tv_address);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
         getLastLocation();
+        Handler mHandler = new Handler();
+        getLocationUser();
     }
     private void getLastLocation() {
         if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -104,5 +115,37 @@ public class MapsFragment extends Fragment implements GoogleMap.OnMarkerClickLis
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
         return false;
+    }
+
+    private void getLocationUser(){
+        FireBaseUtils.myLocationDetail().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()){
+                    locatonModel = task.getResult().toObject(LocatonModel.class);
+                    setLocationUser();
+                }
+            }
+        });
+    }
+    private void setLocationUser(){
+        double lat = currentLocation.getLatitude();
+        double longt = currentLocation.getLongitude();
+        String addressStr = address;
+        if(locatonModel !=null){
+            locatonModel.setLatitude(lat);
+            locatonModel.setLongtitude(longt);
+            locatonModel.setAdrress(addressStr);
+        }else {
+            locatonModel = new LocatonModel(lat,longt,addressStr);
+        }
+        FireBaseUtils.myLocationDetail().set(locatonModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    AndroidUtils.showToast(getContext(),"locationUpdate");
+                }
+            }
+        });
     }
 }

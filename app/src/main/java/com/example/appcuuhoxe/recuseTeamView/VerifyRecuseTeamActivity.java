@@ -1,7 +1,4 @@
-package com.example.appcuuhoxe;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.appcuuhoxe.recuseTeamView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.appcuuhoxe.R;
 import com.example.appcuuhoxe.userView.InfoUserActivity;
 import com.example.appcuuhoxe.utils.AndroidUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,7 +24,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class VerifyActivity extends AppCompatActivity {
+public class VerifyRecuseTeamActivity extends AppCompatActivity {
     String phoneNumber;
     String password;
     String verifycationCode;
@@ -37,7 +38,7 @@ public class VerifyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_verify);
+        setContentView(R.layout.activity_verify_recuse_team);
         edt_otp = findViewById(R.id.edt_otp);
         btn_resend_otp = findViewById(R.id.btn_resend_otp);
         btn_verify = findViewById(R.id.btn_verify);
@@ -98,7 +99,7 @@ public class VerifyActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(VerifyActivity.this, InfoUserActivity.class);
+                    Intent intent = new Intent(VerifyRecuseTeamActivity.this, InfoRecuseTeamActivity.class);
                     intent.putExtra("phone",phoneNumber);
                     intent.putExtra("pass",password);
                     startActivity(intent);

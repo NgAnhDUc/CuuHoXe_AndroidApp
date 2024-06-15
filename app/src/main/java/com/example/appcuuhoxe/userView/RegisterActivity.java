@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.appcuuhoxe.R;
-import com.example.appcuuhoxe.VerifyActivity;
 import com.example.appcuuhoxe.recuseTeamView.RegisterRecuseTeamActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

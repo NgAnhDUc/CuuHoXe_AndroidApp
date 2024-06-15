@@ -10,14 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.appcuuhoxe.R;
-import com.example.appcuuhoxe.VerifyActivity;
-import com.example.appcuuhoxe.VerifyLoginActivity;
 import com.example.appcuuhoxe.recuseTeamView.LoginRecuseTeamActivity;
-import com.example.appcuuhoxe.utils.AndroidUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.AggregateQuery;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -15,19 +15,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCuuHoXe"
-        tools:targetApi="31">
+        tools:targetApi="31" >
         <activity
-            android:name=".VerifyLoginActivity"
+            android:name=".PaymentTypeActivity"
             android:exported="false" />
-        <activity
-            android:name=".recuseTeamView.RegisterRecuseTeamActivity"
-            android:exported="false" />
-        <activity
-            android:name=".recuseTeamView.LoginRecuseTeamActivity"
-            android:exported="false" />
-        <activity
-            android:name=".userView.InfoUserActivity"
-            android:exported="false" />
+
+        <service
+            android:name=".UserService"
+            android:enabled="true"
+            android:exported="true" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -44,7 +40,29 @@
             android:value="AIzaSyDWmK2Br2WyS6NJesuGgAnxfF5ItKmuV8M" />
 
         <activity
-            android:name=".VerifyActivity"
+            android:name=".RecuseChooseActivity"
+            android:exported="false"
+            android:label="@string/title_activity_recuse_choose" />
+        <activity
+            android:name=".userView.VerifyLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".recuseTeamView.RegisterRecuseTeamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".recuseTeamView.LoginRecuseTeamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".userView.InfoUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".userView.VerifyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".recuseTeamView.VerifyRecuseTeamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".recuseTeamView.InfoRecuseTeamActivity"
             android:exported="false" />
         <activity
             android:name=".userView.RegisterActivity"
@@ -57,7 +75,7 @@
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

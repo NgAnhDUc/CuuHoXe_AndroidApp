@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.RecuseApplicationFragment">
+    <TextView
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:text="Chọn kiểu cứu hộ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:background="@color/my_red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_margin="2dp"
+            android:orientation="vertical"
+            android:padding="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text="Cứu hộ khẩn cấp: Hotline: 011.111.111.11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="(Dành cho trường hợp đặc biệt - Chi phí cao)"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:background="@color/my_orange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/btn_recuse"
+            android:background="@color/white"
+            android:layout_margin="2dp"
+            android:orientation="vertical"
+            android:padding="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text="Cứu hộ thông thường"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="(Mức giá niêm yết - Cứu hộ tức thì)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:background="@color/my_yellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_margin="2dp"
+            android:orientation="vertical"
+            android:padding="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text="Cứu hộ tạm thời"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="(Ứng phó tình huống tạm thời khi đợi đội cứu hộ)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

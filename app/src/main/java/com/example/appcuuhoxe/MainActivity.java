@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.appcuuhoxe.databinding.ActivityMainBinding;
 import com.example.appcuuhoxe.fragments.AccountFragment;
 import com.example.appcuuhoxe.fragments.MapsFragment;
+import com.example.appcuuhoxe.fragments.RecuseApplicationFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.locate){
                     ReplaceFragment(new MapsFragment());
+                }
+                if(item.getItemId() == R.id.driver){
+                    ReplaceFragment(new RecuseApplicationFragment());
                 }
                 if(item.getItemId() == R.id.account){
                     ReplaceFragment(new AccountFragment());

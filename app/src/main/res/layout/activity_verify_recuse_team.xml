@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".userView.VerifyLoginActivity">
+    tools:context=".recuseTeamView.VerifyRecuseTeamActivity">
     <LinearLayout
         android:gravity="center"
-        android:background="@color/my_yellow"
+        android:background="@color/my_red"
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <TextView
@@ -28,7 +28,7 @@
 
         <EditText
             android:id="@+id/edt_otp"
-            android:textColorHint="@color/my_light_blue"
+            android:textColorHint="@color/my_orange"
             android:textColor="@color/my_light_blue"
             android:textStyle="bold"
             android:textAlignment="center"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/btn_verify"
-            android:backgroundTint="@color/my_light_blue"
+            android:backgroundTint="@color/my_orange"
             android:textAllCaps="false"
             android:text="Xác thực"
             android:textSize="23sp"

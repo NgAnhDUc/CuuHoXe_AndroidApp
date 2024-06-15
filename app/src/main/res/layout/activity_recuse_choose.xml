@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".RecuseChooseActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"/>
+    <RelativeLayout
+        android:layout_above="@id/button_layout"
+        android:layout_below="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_title1"
+            android:background="@color/my_dark_blue"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Chọn dịch vụ cứu hộ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ScrollView
+            android:layout_below="@+id/tv_title1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RadioGroup
+                android:id="@+id/radio_gr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:paddingLeft="25dp"
+                    android:background="@drawable/custom_radiobtn_selector"
+                    android:layout_margin="5dp"
+                    android:drawableStart="@drawable/tire_repair_20dp_icon"
+                    android:text="Vá Lốp xe số (20.000đ)"
+                    android:button="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+                <RadioButton
+                    android:paddingLeft="25dp"
+                    android:background="@drawable/custom_radiobtn_selector"
+                    android:layout_margin="5dp"
+                    android:drawableStart="@drawable/tire_repair_20dp_icon"
+                    android:text="Vá Lốp xe ga(50.000đ)"
+                    android:button="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+                <RadioButton
+                    android:paddingLeft="25dp"
+                    android:background="@drawable/custom_radiobtn_selector"
+                    android:layout_margin="5dp"
+                    android:drawableStart="@drawable/tire_repair_20dp_icon"
+                    android:text="Thay ruột xe máy (100.000đ)"
+                    android:button="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+                <RadioButton
+                    android:paddingLeft="20dp"
+                    android:background="@drawable/custom_radiobtn_selector"
+                    android:layout_margin="5dp"
+                    android:drawableStart="@drawable/ev_station_20dp_icon"
+                    android:text="Kích bình ắc quy (50.000đ)"
+                    android:button="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+                <RadioButton
+                    android:paddingLeft="25dp"
+                    android:background="@drawable/custom_radiobtn_selector"
+                    android:layout_margin="5dp"
+                    android:drawableStart="@drawable/handyman_20dp_icon"
+                    android:text="Xe chết máy (150.000đ)"
+                    android:button="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+                <RadioButton
+                    android:paddingLeft="25dp"
+                    android:background="@drawable/custom_radiobtn_selector"
+                    android:layout_margin="5dp"
+                    android:drawableStart="@drawable/oil_barrel_20dp_icon"
+                    android:text="Đổ xăng - 1 lít (50.000đ)"
+                    android:button="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+                <RadioButton
+                    android:paddingLeft="25dp"
+                    android:background="@drawable/custom_radiobtn_selector"
+                    android:layout_margin="5dp"
+                    android:drawableStart="@drawable/key_off_20dp_icon"
+                    android:text="Mất khoá (150.000đ)"
+                    android:button="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+                <RadioButton
+                    android:paddingLeft="25dp"
+                    android:background="@drawable/custom_radiobtn_selector"
+                    android:layout_margin="5dp"
+                    android:drawableStart="@drawable/local_shipping_20dp_icon"
+                    android:text="Vận chuyển xe dưới 175cc (500.000đ)"
+                    android:button="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+                <RadioButton
+                    android:paddingLeft="25dp"
+                    android:background="@drawable/custom_radiobtn_selector"
+                    android:layout_margin="5dp"
+                    android:drawableStart="@drawable/local_shipping_20dp_icon"
+                    android:text="Vận chuyển xe trên 175cc (1.000.000đ)"
+                    android:button="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+                <RadioButton
+                    android:paddingLeft="25dp"
+                    android:background="@drawable/custom_radiobtn_selector"
+                    android:layout_margin="5dp"
+                    android:drawableStart="@drawable/handyman_20dp_icon"
+                    android:text="Vấn đề khác (Giá cả thương lượng)"
+                    android:button="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+            </RadioGroup>
+        </ScrollView>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/button_layout"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <LinearLayout
+            android:background="@color/my_yellow"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <LinearLayout
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="6dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/btn_bg_selector"
+            android:textAllCaps="false"
+            android:text="Đặt Cứu Hộ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+    </LinearLayout>
+</RelativeLayout>
+
