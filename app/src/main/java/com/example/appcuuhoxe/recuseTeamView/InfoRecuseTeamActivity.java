@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appcuuhoxe.MainActivity;
 import com.example.appcuuhoxe.R;
+import com.example.appcuuhoxe.RecuseTeamMainActivity;
 import com.example.appcuuhoxe.models.RecuseTeamModel;
 import com.example.appcuuhoxe.models.UserModel;
 import com.example.appcuuhoxe.utils.FireBaseUtils;
@@ -80,7 +81,7 @@ public class InfoRecuseTeamActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(InfoRecuseTeamActivity.this, MainActivity.class);
+                    Intent intent = new Intent(InfoRecuseTeamActivity.this, RecuseTeamMainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }

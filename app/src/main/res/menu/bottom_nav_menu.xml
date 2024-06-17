@@ -6,9 +6,9 @@
         android:title="Vị trí">
     </item>
     <item
-        android:id="@+id/shopping"
-        android:icon="@drawable/shopping_bag_icon"
-        android:title="Cửa hàng">
+        android:id="@+id/notification"
+        android:icon="@drawable/notifications_24dp_icon"
+        android:title="Thong báo">
     </item>
     <item
         android:id="@+id/driver"

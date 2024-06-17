@@ -1,5 +1,6 @@
 package com.example.appcuuhoxe;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,7 +12,13 @@ import android.widget.TextView;
 
 import com.example.appcuuhoxe.userView.LoginActivity;
 import com.example.appcuuhoxe.userView.RegisterActivity;
+import com.example.appcuuhoxe.utils.AndroidUtils;
 import com.example.appcuuhoxe.utils.FireBaseUtils;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class SplashActivity extends AppCompatActivity {
     Button btn_next;
@@ -37,11 +44,54 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
         checkLogin();
+
     }
     void checkLogin(){
         if (FireBaseUtils.isLoggedIn()){
-            Intent intent = new Intent(SplashActivity.this,MainActivity.class);
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
+        }
+    }
+    void checkLoginReT(){
+        if (FireBaseUtils.isLoggedIn()){
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            String ID = FireBaseUtils.currentUserID();
+            Query queryPhoneNumber = db.collection("DoiCuuHo").document(ID).getParent();
+            queryPhoneNumber.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if(task.isSuccessful()){
+                        int check = task.getResult().getDocuments().size();
+                        if(check == 0){
+//                            AndroidUtils.showToast(getApplicationContext(),"bbb");
+                        }else {
+                            Intent intent = new Intent(SplashActivity.this, RecuseTeamMainActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+                }
+            });
+        }
+    }
+    void checkLoginUser(){
+        if (FireBaseUtils.isLoggedIn()){
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            String ID = FireBaseUtils.currentUserID();
+            Query queryPhoneNumber = db.collection("TaiKhoan").document(ID).getParent().whereEqualTo("role","recuseTeam");
+            queryPhoneNumber.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if(task.isSuccessful()){
+                        int check = task.getResult().getDocuments().size();
+                        if(check == 0){
+//                            AndroidUtils.showToast(getApplicationContext(),"aaa");
+                        }else {
+                            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+                }
+            });
         }
     }
 }

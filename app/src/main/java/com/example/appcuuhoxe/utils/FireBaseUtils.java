@@ -33,4 +33,7 @@ public class FireBaseUtils {
     public static DocumentReference myLocationDetail(){
         return FirebaseFirestore.getInstance().collection("Location").document(currentUserID());
     }
+    public static DocumentReference recuseLocationDetail(){
+        return FirebaseFirestore.getInstance().collection("Location").document("");
+    }
 }

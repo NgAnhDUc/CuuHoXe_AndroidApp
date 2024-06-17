@@ -65,6 +65,24 @@ public class MapsFragment extends Fragment implements GoogleMap.OnMarkerClickLis
             mMap.setMyLocationEnabled(true);
             LatLng allocation = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(allocation,15f));
+
+            LatLng Doi1 = new LatLng(16.021360,108.209220);
+            mMap.addMarker(new MarkerOptions().position(Doi1).title("Đội Cứu Hộ Quận Cẩm Lệ"));
+
+            LatLng Doi2 = new LatLng(16.053840,108.211540);
+            mMap.addMarker(new MarkerOptions().position(Doi2).title("Đội Cứu Hộ Quận Hải Châu"));
+
+            LatLng Doi3 = new LatLng(16.099440,108.138700);
+            mMap.addMarker(new MarkerOptions().position(Doi3).title("Đội Cứu Hộ Quận Liên Chiểu"));
+
+            LatLng Doi4 = new LatLng(16.010970,108.256560);
+            mMap.addMarker(new MarkerOptions().position(Doi4).title("Đội Cứu Hộ Quận Ngũ Hành Sơn"));
+
+            LatLng Doi5 = new LatLng(16.077700,108.232240);
+            mMap.addMarker(new MarkerOptions().position(Doi5).title("Đội Cứu Hộ Quận Sơn Trà"));
+
+            LatLng Doi6 = new LatLng(16.071290,108.195310);
+            mMap.addMarker(new MarkerOptions().position(Doi6).title("Đội Cứu Hộ Quận Thanh Khê"));
         }
     };
     @Nullable
@@ -81,7 +99,6 @@ public class MapsFragment extends Fragment implements GoogleMap.OnMarkerClickLis
         tv_address = view.findViewById(R.id.tv_address);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
         getLastLocation();
-        Handler mHandler = new Handler();
         getLocationUser();
     }
     private void getLastLocation() {
@@ -130,14 +147,14 @@ public class MapsFragment extends Fragment implements GoogleMap.OnMarkerClickLis
     }
     private void setLocationUser(){
         double lat = currentLocation.getLatitude();
-        double longt = currentLocation.getLongitude();
+        double longtDouble = currentLocation.getLongitude();
         String addressStr = address;
         if(locatonModel !=null){
             locatonModel.setLatitude(lat);
-            locatonModel.setLongtitude(longt);
+            locatonModel.setLongtitude(longtDouble);
             locatonModel.setAdrress(addressStr);
         }else {
-            locatonModel = new LocatonModel(lat,longt,addressStr);
+            locatonModel = new LocatonModel(lat,longtDouble,addressStr);
         }
         FireBaseUtils.myLocationDetail().set(locatonModel).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

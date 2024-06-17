@@ -33,6 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RadioButton
+                    android:id="@+id/radio_btn_1"
                     android:paddingLeft="25dp"
                     android:background="@drawable/custom_radiobtn_selector"
                     android:layout_margin="5dp"
@@ -42,6 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"/>
                 <RadioButton
+                    android:id="@+id/radio_btn_2"
                     android:paddingLeft="25dp"
                     android:background="@drawable/custom_radiobtn_selector"
                     android:layout_margin="5dp"
@@ -51,6 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"/>
                 <RadioButton
+                    android:id="@+id/radio_btn_3"
                     android:paddingLeft="25dp"
                     android:background="@drawable/custom_radiobtn_selector"
                     android:layout_margin="5dp"
@@ -60,6 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"/>
                 <RadioButton
+                    android:id="@+id/radio_btn_4"
                     android:paddingLeft="20dp"
                     android:background="@drawable/custom_radiobtn_selector"
                     android:layout_margin="5dp"
@@ -69,6 +73,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"/>
                 <RadioButton
+                    android:id="@+id/radio_btn_5"
                     android:paddingLeft="25dp"
                     android:background="@drawable/custom_radiobtn_selector"
                     android:layout_margin="5dp"
@@ -78,6 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"/>
                 <RadioButton
+                    android:id="@+id/radio_btn_6"
                     android:paddingLeft="25dp"
                     android:background="@drawable/custom_radiobtn_selector"
                     android:layout_margin="5dp"
@@ -87,6 +93,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"/>
                 <RadioButton
+                    android:id="@+id/radio_btn_7"
                     android:paddingLeft="25dp"
                     android:background="@drawable/custom_radiobtn_selector"
                     android:layout_margin="5dp"
@@ -96,6 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"/>
                 <RadioButton
+                    android:id="@+id/radio_btn_8"
                     android:paddingLeft="25dp"
                     android:background="@drawable/custom_radiobtn_selector"
                     android:layout_margin="5dp"
@@ -105,6 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"/>
                 <RadioButton
+                    android:id="@+id/radio_btn_9"
                     android:paddingLeft="25dp"
                     android:background="@drawable/custom_radiobtn_selector"
                     android:layout_margin="5dp"
@@ -114,6 +123,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"/>
                 <RadioButton
+                    android:id="@+id/radio_btn_10"
                     android:paddingLeft="25dp"
                     android:background="@drawable/custom_radiobtn_selector"
                     android:layout_margin="5dp"
@@ -143,18 +153,70 @@
             android:layout_width="match_parent"
             android:layout_height="30dp">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <LinearLayout
+                    android:id="@+id/btn_tienmat"
+                    android:orientation="horizontal"
+                    android:layout_width="170dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/payments_20dp_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="Tiền mặt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/btn_the"
+                    android:orientation="horizontal"
+                    android:layout_width="170dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/credit_card_20dp_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="Thẻ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/view_madon"
+                    android:orientation="horizontal"
+                    android:layout_width="170dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/verified_20dp_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:id="@+id/tv_madoncuuho"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="MADONCUUHO"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
         <Button
+            android:id="@+id/btn_datcuuho"
             android:layout_marginHorizontal="20dp"
             android:background="@drawable/btn_bg_selector"
             android:textAllCaps="false"
             android:text="Đặt Cứu Hộ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
         </Button>
     </LinearLayout>
 </RelativeLayout>

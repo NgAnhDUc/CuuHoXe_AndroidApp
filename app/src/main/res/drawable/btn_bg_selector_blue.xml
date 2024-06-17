@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/my_dark_blue" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+    <item android:state_pressed="true" android:drawable="@color/my_light_blue" tools:ignore="StateListReachable" />
+    <item android:state_focused="true" android:drawable="@color/my_light_blue"/>
+    <item android:drawable="@color/my_dark_blue"/>
+</selector>
